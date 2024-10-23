@@ -5,7 +5,7 @@ type RandomArraySorterProps = {
 };
 
 export const RandomArraySorter = ({ direction }: RandomArraySorterProps) => {
-	const [randomLength, setRandomLength] = useState(0);
+	const [randomLength, setRandomLength] = useState(10);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
