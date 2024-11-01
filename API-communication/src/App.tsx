@@ -1,5 +1,7 @@
+import { TodoApp } from './TodoApp';
+
 const App = () => {
-	return null;
+	return <TodoApp />;
 };
 
 export { App };
