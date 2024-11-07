@@ -20,5 +20,27 @@
       "id": "2b87",
       "title": "gotować"
     }
+  ],
+  "subtodos": [
+    {
+      "todoId": "6",
+      "id": "lldf",
+      "title": "bbbbbbbbbb"
+    },
+    {
+      "id": "c7c6",
+      "title": "lorem ipsum 1",
+      "todoId": "5"
+    },
+    {
+      "id": "7161",
+      "title": "lorem 2",
+      "todoId": "5"
+    },
+    {
+      "id": "d16e",
+      "title": "aaaaaa",
+      "todoId": "6"
+    }
   ]
 }
