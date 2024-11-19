@@ -1,13 +1,13 @@
-import { useTodos } from './hooks/useTodos';
+import { useGetTodosQuery } from './queries/useGetTodosQuery';
 import { SingleTodo } from './SingleTodo';
 import { TodoForm } from './TodoForm';
 import { TopTodos } from './TopTodos';
 
 export const TodoApp = () => {
-	const { data, error, loading, removeTodo, addTodo } = useTodos();
+	const { data, isLoading, error } = useGetTodosQuery();
 
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>{error}</p>;
+	if (isLoading) return <p>Loading...</p>;
+	if (error) return <p>{error.message}</p>;
 
 	return (
 		<div>
@@ -15,10 +15,10 @@ export const TodoApp = () => {
 			<TopTodos />
 			<TopTodos />
 			<TopTodos />
-			<TodoForm onNewTodo={addTodo} />
+			<TodoForm />
 			<ul>
 				{data?.map(element => (
-					<SingleTodo key={element.id} onTodoRemove={removeTodo} element={element} />
+					<SingleTodo key={element.id} element={element} />
 				))}
 			</ul>
 		</div>

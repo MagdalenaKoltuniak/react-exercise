@@ -1,7 +1,7 @@
-import { useTodos } from './useTodos';
+import { useGetTodosQuery } from '../queries/useGetTodosQuery';
 
 export const useTopTodos = () => {
-	const { data } = useTodos();
+	const { data } = useGetTodosQuery();
 
 	return {
 		topTodos: data ? data.slice(0, 5) : [],

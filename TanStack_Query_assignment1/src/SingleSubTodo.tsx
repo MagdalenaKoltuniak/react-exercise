@@ -1,24 +1,16 @@
-import { useEffect } from 'react';
-import { useSubTodoDelete } from './hooks/useSubTodoDelete';
+import { useDeleteSubTodoMutation } from './queries/useDeleteSubTodoMutation';
 import { SubTodo } from './types';
 
 type SingleSubTodoProps = {
-	onDeleteCallback: () => void;
 	element: SubTodo;
 };
 
-export const SingleSubTodo = ({ element, onDeleteCallback }: SingleSubTodoProps) => {
-	const { deleteSubTodo, data } = useSubTodoDelete();
+export const SingleSubTodo = ({ element }: SingleSubTodoProps) => {
+	const { mutate: deleteSubTodo } = useDeleteSubTodoMutation();
 
 	const onDelete = () => {
 		deleteSubTodo(element.id);
 	};
-
-	useEffect(() => {
-		if (!data) return;
-
-		onDeleteCallback();
-	}, [data]);
 
 	return (
 		<li>

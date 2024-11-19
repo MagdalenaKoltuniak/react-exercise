@@ -1,13 +1,7 @@
-import { useState } from 'react';
-
 const API_BASE = 'http://localhost:3000/';
 
 export const useApi = () => {
-	const [loading, setLoading] = useState<boolean>(false);
-	const [error, setError] = useState('');
-
 	const call = async <R, P = {}>(url: string, method: 'GET' | 'DELETE' | 'POST', body?: P) => {
-		setLoading(true);
 
 		const commonData = {
 			method,
@@ -26,13 +20,11 @@ export const useApi = () => {
 				return data;
 			} else {
 				const apiError: string = await response.text();
-				setError(apiError);
+				throw new Error(apiError);
 			}
 		} catch (e) {
 			console.log('Error', e);
-			setError('wystąpił błąd');
-		} finally {
-			setLoading(false);
+			throw new Error('wystąpił błąd');
 		}
 	};
 
@@ -48,5 +40,5 @@ export const useApi = () => {
 		return await call<R, P>(url, 'POST', data);
 	};
 
-	return { apiGet, apiDelete, apiPost, loading, error };
+	return { apiGet, apiDelete, apiPost };
 };
