@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { useCreateBooksQuery } from './queries/useCreateBookMutation';
+import { useCreateBookMutation } from './queries/useCreateBookMutation';
 import { BookForm } from './BookForm';
 
 export const AddBook = () => {
-	const { mutate, isPending } = useCreateBooksQuery();
+	const { mutate, isPending } = useCreateBookMutation();
 
 	const [values, setValues] = useState({
 		title: '',

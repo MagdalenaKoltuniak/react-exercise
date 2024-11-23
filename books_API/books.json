@@ -1,22 +1,16 @@
 {
   "books": [
     {
-      "title": "Franek",
+      "title": "Franek99",
       "description": "Lorem ipsum1lll",
-      "year": 1986,
+      "year": 1985,
       "id": "1"
     },
     {
-      "id": "2",
-      "year": 2006,
-      "title": "Bbbbbb nvjkndk",
-      "description": "Lorem ipsum2"
-    },
-    {
-      "id": "3",
-      "year": 1999,
-      "title": "Ccccc jhdjwe",
-      "description": "Lorem ipsum3"
+      "title": "Narty",
+      "description": "jazda",
+      "year": 2025,
+      "id": "3"
     },
     {
       "id": "4",
