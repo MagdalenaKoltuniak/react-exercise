@@ -4,3 +4,5 @@ export type BookEntity = {
 	title: string;
 	description: string;
 };
+
+export type BookDto = Omit<BookEntity, 'id'>;

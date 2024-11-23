@@ -1,12 +1,14 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const useApi = () => {
-	const call = async <R>(url: string, method: 'GET' | 'DELETE' | 'POST'): Promise<R> => {
+	// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+	const call = async <R, P = {}>(url: string, method: 'GET' | 'DELETE' | 'POST' | 'PUT', payload?: P): Promise<R> => {
 		const fetchConfig = {
 			method,
 			headers: {
 				'Content-Type': 'application/json',
 			},
+			body: payload ? JSON.stringify(payload) : undefined,
 		};
 
 		try {
@@ -29,5 +31,13 @@ export const useApi = () => {
 		return await call<R>(url, 'GET');
 	};
 
-	return { apiGet };
+	const apiPost = async <R, P>(url: string, payload: P) => {
+		return await call<R, P>(url, 'POST', payload);
+	};
+
+	const apiPut = async <R, P>(url: string, payload: P) => {
+		return await call<R, P>(url, 'PUT', payload);
+	};
+
+	return { apiGet, apiPost, apiPut };
 };

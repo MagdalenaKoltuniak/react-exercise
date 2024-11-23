@@ -5,12 +5,12 @@ import { useApi } from '../hooks/useApi';
 export const useGetBooksQuery = () => {
 	const { apiGet } = useApi();
 
-	const { data, error, isPending } = useQuery({
+	const { data, isFetching } = useQuery({
 		queryKey: ['books'],
 		queryFn: async () => {
 			return apiGet<BookEntity[]>('books');
 		},
 	});
 
-	return { data, error, isPending };
+	return { data, isFetching };
 };
