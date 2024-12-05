@@ -19,6 +19,9 @@ export const MainLayout = () => {
 						<li>
 							<AppLink to='product/details'>Product details</AppLink>
 						</li>
+						<li>
+							<AppLink to='/dashboard'>Dashboard</AppLink>
+						</li>
 					</ul>
 				</nav>
 			</header>
